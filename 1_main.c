@@ -9,6 +9,5 @@ int main(void)
     scanf("%f",&tempreture);
 
     printf("%.1f",tempreture * 9 /5 + 32);
-
     return 0;
 }
