@@ -1,9 +1,14 @@
-//
-//
-//
+//202411604104
+//faidehua@gmail.com
+//兰雄杰
 #include <stdio.h>
-int main()
+
+int main(void)
 {
-    printf("Hello World");
+    float tempreture=0;
+    scanf("%f",&tempreture);
+
+    printf("%.1f",tempreture * 9 /5 + 32);
+
     return 0;
 }
