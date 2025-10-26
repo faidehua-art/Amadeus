@@ -5,18 +5,19 @@
 
 int main()
 {
-    int cnt = 0;
+    int a = 0;
     for(int i = 100; i < 1000; i++) {
-        for(int j = 2; j < i; j++) {
-            if(i % j == 0) {
-                break;
-            }else if(i/2 < j) {
-                if(cnt > 0) {
-                    printf(" ");
-                }
-                printf("%d", i);
-                cnt = 1;
+        int j,k,l,sum = 0;
+        j = i % 10;
+        k = i / 10 % 10;
+        l = i / 100;
+        sum = j*j*j + k*k*k + l*l*l;
+        if(sum == i) {
+            if(a == 1){
+                printf(" ");
             }
+            printf("%d", i);
+            a = 1;
         }
     }
 
