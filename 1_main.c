@@ -5,9 +5,23 @@
 
 int main(void)
 {
-    float tempreture=0;
-    scanf("%f",&tempreture);
+    int a[3][3];
+    int *b = &a[0][0];
 
-    printf("%.1f",tempreture * 9 /5 + 32);
+    while(b <= &a[2][2]) {
+        scanf("%d", &*b++);
+    }
+
+    for(int i = 0; i < 3; i++) {
+        if(i > 0) {
+            printf("\n");
+        }
+        for(int j = 0; j < 3; j++) {
+            if(j  > 0)
+                printf(" ");
+            printf("%d", a[i][j]);
+        }
+    }
+
     return 0;
 }
