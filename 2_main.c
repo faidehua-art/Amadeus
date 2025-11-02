@@ -5,19 +5,22 @@
 
 int main(void)
 {
-    int grade=0;
-    scanf("%d",&grade);
+    int a[3][3];
+    int *b = &a[0][0];
 
-    if(grade>89 && grade<101) {
-        printf("A");
-    }else if(grade>79 && grade<90) {
-        printf("B");
-    }else if(grade>69 && grade<80) {
-        printf("C");
-    }else if(grade>59 && grade<70) {
-        printf("D");
-    }else if(grade<60) {
-        printf("E");
+    while(b <= &a[2][2]) {
+        scanf("%d", &*b++);
+    }
+
+    for(int i = 0; i < 3; i++) {
+        if(i > 0) {
+            printf("\n");
+        }
+        for(int j = 0; j < 3; j++) {
+            if(j  > 0)
+                printf(" ");
+            printf("%d", a[j][i]);
+        }
     }
 
     return 0;
