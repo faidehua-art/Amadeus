@@ -3,16 +3,25 @@
 //兰雄杰
 #include <stdio.h>
 
+int mul(int a, int b);
 int main(void)
 {
-    int a,b,c;
-    scanf("%d %d %d",&a,&b,&c);
-
-    if(a<b+c && a+b>c && a+c>b) {
-        printf("可以组成三角形");
-    }else {
-        printf("不能组成三角形");
+    int sum = 0;
+    for(int i = 1; i < 6; i++) {
+        sum += mul(i, 2);
     }
 
+    printf("%d", sum);
+
     return 0;
+}
+
+int mul(int a, int b)
+{
+    int sum = 1;
+    for(int i = 0; i < b; i++) {
+        sum *= a;
+    }
+
+    return sum;
 }
