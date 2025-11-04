@@ -3,22 +3,17 @@
 //兰雄杰
 #include <stdio.h>
 
+int Sequence(int a1, int an, int step);
 int main(void)
 {
-    int a[5] = {0};
-    for(int i = 0; i < 4; i++) {
-        scanf("%d", &a[i]);
-        a[4] += a[i];
+    printf("%d", Sequence(1, 100, 1));
+}
+int Sequence(int a1, int an, int step)
+{
+    int sum = 0;
+    for(int i = a1; i <= an; i++) {
+        sum += i;
     }
 
-    int already = 0;
-    for(int i = 0; i < 5; i++) {
-        if(already == 1) {
-            printf(" ");
-        }
-        printf("%d", a[i]);
-        already = 1;
-    }
-
-    return 0;
+    return sum;
 }
