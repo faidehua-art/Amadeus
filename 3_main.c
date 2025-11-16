@@ -4,50 +4,22 @@
 #include <stdio.h>
 
 void swap(int *a, int *b);
-void bubbleSort(int *a, int n);
 
 int main(void)
 {
-    int n = 10, a[n], *b = a;
+    int a, b, *p = &a, *q = &b;
 
-    while(b < &a[n]) {
-        scanf("%d", b++);
-    }
+    scanf("%d %d", &a, &b);
+    swap(p, q);
 
-
-    bubbleSort(a, n);
-
-    b = a;
-    while(b < &a[n]) {
-        if(b > a) {
-            printf(" ");
-        }
-        printf("%d", *b++);
-    }
+    printf("%d %d",a ,b);
 
     return 0;
 }
 
 void swap(int *a, int *b)
 {
-    int stemp;
-    stemp = *a;
+    int temp = *a;
     *a = *b;
-    *b = stemp;
-}
-
-void bubbleSort(int *a, int n)
-{
-    int *c, swapped = 1;
-    while(swapped == 1) {
-        swapped = 0;
-        c = a;
-        while(c < &a[n - 1]) {
-            if(*c > *(c + 1)) {
-                swap(c, c + 1);
-                swapped = 1;
-            }
-            c++;
-        }
-    }
+    *b = temp;
 }
