@@ -5,23 +5,21 @@
 
 int main(void)
 {
-    int a[3][3];
-    int *b = &a[0][0];
+    int a[5] = {0}, *p = a;
 
-    while(b <= &a[2][2]) {
-        scanf("%d", &*b++);
+    while(p < &a[5]) {
+        scanf("%d", p++);
     }
 
-    for(int i = 0; i < 3; i++) {
+    p = a;
+    while(p < &a[5]) {
+        *p++ *= 2;
+    }
+
+    for(int i = 0; i < 5; i++) {
         if(i > 0) {
-            printf("\n");
+            printf(" ");
         }
-        for(int j = 0; j < 3; j++) {
-            if(j  > 0)
-                printf(" ");
-            printf("%d", a[j][i]);
-        }
+        printf("%d", a[i]);
     }
-
-    return 0;
 }
