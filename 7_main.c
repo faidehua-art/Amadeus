@@ -2,35 +2,49 @@
 //faidehua@gmail.com
 //兰雄杰
 #include <stdio.h>
+#include <stdbool.h>
 
-void reverse(int *a, int n);
+void swap(int *a, int *b);
+void bobble(int *a);
+
 int main(void)
 {
-    int n = 5;
-    int a[n], *b = a;
-
-    while(b < &a[n]) {
-        scanf("%d", b++);
+    int a[10] = {0}, *p = a;
+    
+    while(p < &a[10]) {
+        scanf("%d", p++);
     }
 
-    reverse(a, n);
+    bobble(a);
 
-    b = a;
-    while(b < &a[n]) {
-        if(b > a) {
+    for(int i = 0; i < 10; i ++) {
+        if(i > 0)
             printf(" ");
-        }
-        printf("%d", *b++);
+        printf("%d", a[i]);
     }
+
+    return 0;
 }
 
-void reverse(int *a, int n)
+void swap(int *a, int *b)
 {
-    int *b = a;
-    while(b < &a[n/2]) {
-        int temp = *b;
-        *b = a[&a[n-1]-b];
-        a[&a[n-1]-b] = temp;
-        b++;
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void bobble(int *a)
+{
+    bool n = true;
+    while(n){
+        n = false;
+        int *p = a;
+        while(p < &a[9]) {
+            if(*p > *(p+1)) {
+                swap(p, p+1);
+                n = true;
+            }
+            p++;
+        }
     }
 }
