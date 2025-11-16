@@ -2,37 +2,27 @@
 //faidehua@gmail.com
 //兰雄杰
 #include <stdio.h>
+#include <stdlib.h>
 
-int re_sum(int *a, int n);
-int re_mul(int *a, int n);
 int main(void)
 {
-    int n = 5, a[5] = {0};
-    int *b = a;
-    while(b < &a[n]) {
-        scanf("%d", b++);
+    int *arr;
+    arr = (int*)malloc(5 * sizeof(int));
+
+    for(int i = 0; i < 5; i++) {
+        scanf("%d", arr++);
     }
-    printf("%d %d", re_sum(a, n), re_mul(a, n));
+
+    arr -= 5;
+
+    for(int i = 0; i < 5; i++) {
+        if(i > 0)
+            printf(" ");
+        printf("%d", *arr++);
+    }
+
+    arr -= 5;
+    free(arr);
 
     return 0;
-}
-
-int re_sum(int *a, int n)
-{
-    int sum = 0, *b = a;
-    while(b < &a[n]) {
-        sum += *b++;
-    }
-
-    return sum;
-}
-
-int re_mul(int *a, int n)
-{
-    int mul = 1, *b = a;
-    while(b < &a[n]) {
-        mul *= *b++;
-    }
-
-    return mul;
 }
