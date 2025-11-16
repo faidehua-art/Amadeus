@@ -3,25 +3,31 @@
 //兰雄杰
 #include <stdio.h>
 
-int mul(int a, int b);
+void up(int *a);
+
 int main(void)
 {
-    int sum = 0;
-    for(int i = 1; i < 6; i++) {
-        sum += mul(i, 2);
+    int a[5] = {0}, *p = a;
+
+    while(p < &a[5]) {
+        scanf("%d", p++);
     }
 
-    printf("%d", sum);
+    p = a;
+    up(p);
+
+    for(int i = 0; i < 5; i++) {
+        if(i > 0) 
+            printf(" ");
+        printf("%d", a[i]);
+    }
 
     return 0;
 }
 
-int mul(int a, int b)
+void up(int *a)
 {
-    int sum = 1;
-    for(int i = 0; i < b; i++) {
-        sum *= a;
+    for(int i = 0; i < 5; i++) {
+        *a++ +=1;
     }
-
-    return sum;
 }
